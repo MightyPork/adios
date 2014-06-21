@@ -12,7 +12,7 @@ To install it to OpenBox, put the file into `/usr/bin` (or anywhere else, but yo
   <action name="Execute">
     <command>
       <!-- put command or path to the script here -->
-      edit-dialog
+      exit-prompt
     </command>
   </action>
 </keybind>
