@@ -1,23 +1,27 @@
-exit-prompt
-===========
+Adios!
+======
 
-Exit dialog for systemctl / openbox (intended for Arch)
+Adios is a simple exit dialog, similar to `cb-exit` from CrunchBang.
 
-The code is based on `cb-exit` from CrunchBang, and it's primarily a port of this feature to ArchBang.
+It supports various desktop environment and is highly customizable (see help for details).
+
+The tool contains presets for ArchBang, CrunchBang and universal ones for KDE and XFCE.
+
+Installing to OpenBox
+---------------------
 
 To install it to OpenBox, put the file into `/usr/bin` (or anywhere else, but you'll have to write the full path), and modify OpenBox's `rc.xml` file as so:
+
+Example with `adios --ab` (preset for ArchBang)
 
 ~~~xml
 <keybind key="XF86PowerOff">
   <action name="Execute">
     <command>
-      <!-- put command or path to the script here -->
-      exit-prompt
+      adios --ab
     </command>
   </action>
 </keybind>
 ~~~
 
-This entry should be there already, just search for `XF86PowerOff`.
-
-After that, restart OpenBox with `openbox --restart` for the change to take effect.
+After adding that, restart OpenBox with `openbox --restart` for the change to take effect.
