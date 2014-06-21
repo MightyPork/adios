@@ -1,7 +1,7 @@
 # Maintainer: Ondřej Hruška <ondra@ondrovo.com>
 
 pkgname=adios-git
-pkgver=0.1
+pkgver=5ea4e72
 pkgrel=1
 pkgdesc="Simple, versatile session exit dialog, inspired by cb-exit."
 arch=('any')
@@ -21,5 +21,5 @@ pkgver() {
 }
 
 package() {
-  install -Dm 755 "$srcdir/exit-prompt/adios" "$pkgdir/usr/bin/adios"
+  install -Dm 755 "$srcdir/adios/adios" "$pkgdir/usr/bin/adios"
 }
