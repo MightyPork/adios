@@ -1,12 +1,14 @@
+SOURCES = src/adios.py LICENSE
 
-build: 
-	mkdir -p ./build
-	
-	# make tarball
-	tar cfz build/release.tar.gz LICENSE -C src adios.py
+build: $(SOURCES)
+	@./pack.sh -n
+
+rel: $(SOURCES)
+	@./pack.sh
+
+setv:
+	@./pack.sh -v $(v)
 	
 clean:
-	# cleanup
-	rm -rf build/*.tar.gz
-	rm -rf *~
+	@find ./build -type f \! -name '.gitignore' -delete
 	
