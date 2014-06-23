@@ -21,9 +21,9 @@ package() {
   install -D -m644 "$srcdir/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
   
   # install files in /usr/share
-  install -Dm 755 "$srcdir/adios.py" "$pkgdir/usr/share/adios/adios.py"
+  install -Dm 755 "$srcdir/*" "$pkgdir/usr/share/adios/"
   
   # install link in /usr/bin
   mkdir -p "${pkgdir}/usr/bin/"
-  ln -s /usr/share/adios/adios.py "${pkgdir}/usr/bin/adios"
+  ln -s /usr/share/adios/adios "${pkgdir}/usr/bin/adios"
 }
