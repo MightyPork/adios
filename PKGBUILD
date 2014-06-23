@@ -1,7 +1,7 @@
 # Maintainer: Ondřej Hruška <ondra@ondrovo.com>
 
-pkgname=adios-git
-pkgver=5ea4e72
+pkgname=adios
+pkgver=0.2.0
 pkgrel=1
 pkgdesc="Simple, versatile session exit dialog, inspired by cb-exit."
 arch=('any')
@@ -11,15 +11,10 @@ license=('MIT')
 depends=('python3' 'python-gobject')
 makedepends=('git')
 
-source=('git://github.com/MightyPork/adios.git')
+source=('https://github.com/MightyPork/adios/archive/0.2.tar.gz')
 provides=('adios')
-md5sums=('SKIP')
-
-pkgver() {
-    cd "$srcdir/adios"
-    git describe --always | sed 's|-|.|g'
-}
+#md5sums=('SKIP')
 
 package() {
-  install -Dm 755 "$srcdir/adios/adios" "$pkgdir/usr/bin/adios"
+  install -Dm 755 "$srcdir/adios/src/adios.py" "$pkgdir/usr/bin/adios"
 }
