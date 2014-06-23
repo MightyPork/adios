@@ -8,22 +8,21 @@ arch=('any')
 url='https://github.com/MightyPork/adios'
 license=('MIT')
 
-depends=('python3' 'python-gobject')
-makedepends=('git')
+depends=('python3' 'python-gobject' 'python-docopt' 'gtk3')
 
-source=('https://github.com/MightyPork/adios/releases/download/%version/release.tar.gz')
+source=('https://github.com/MightyPork/adios/releases/download/%version/adios-%version-%rel.tar.gz')
 provides=('adios')
 conflicts=('adios-git')
 md5sums=('%md5')
 
 package() {
   # install license
-  install -D -m644 "$srcdir/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+  install -D -m644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
   
   # install files in /usr/share
-  install -Dm 755 "$srcdir/*" "$pkgdir/usr/share/adios/"
+  install -Dm 755 "${srcdir}/adios" "${pkgdir}/usr/share/${pkgname}/adios"
   
   # install link in /usr/bin
   mkdir -p "${pkgdir}/usr/bin/"
-  ln -s /usr/share/adios/adios "${pkgdir}/usr/bin/adios"
+  ln -s /usr/share/${pkgname}/adios "${pkgdir}/usr/bin/adios"
 }

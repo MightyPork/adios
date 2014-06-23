@@ -11,4 +11,5 @@ setv:
 	
 clean:
 	@find ./build -type f \! -name '.gitignore' -delete
+	@rm -rf ./tmp
 	

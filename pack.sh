@@ -62,7 +62,14 @@ while getopts ":nrv:" opt; do
 done
 
 
-TAR=build/release.tar.gz
+# load version and rel from counter files
+typeset -i REL=$(cat _REL)
+VERSION=$(cat _VERSION)
+
+# echo their current values
+cecho "rel = ${REL}" BLUE
+cecho "version = ${VERSION}" BLUE
+
 
 # copy all stuff into tmp (clean tmp first)
 mkdir -p tmp
@@ -70,6 +77,8 @@ rm -rf tmp/*
 cp LICENSE tmp
 cp src/adios.py tmp/adios
 
+
+TAR="build/adios-${VERSION}-${REL}.tar.gz"
 # build a tar of the stuff
 tar cfz $TAR -C tmp LICENSE adios
 
@@ -78,13 +87,6 @@ MD5=$(md5sum ${TAR} | cut -d ' ' -f 1)
 cecho "MD5 = ${MD5}" BLUE
 
 
-# load version and rel from counter files
-typeset -i REL=$(cat _REL)
-VERSION=$(cat _VERSION)
-
-# echo their current values
-cecho "rel = ${REL}" BLUE
-cecho "version = ${VERSION}" BLUE
 
 # increment release number if needed
 if [ $INCREL = 1 ]; then
