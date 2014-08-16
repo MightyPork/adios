@@ -126,7 +126,7 @@ class exit_dialog:
 		self.disable_buttons()
 		self.status.set_label("Hibernating, please standby...")
 
-		for c in self.cmd['suspend']:
+		for c in self.cmd['hibernate']:
 			os.system(c)
 
 		Gtk.main_quit()
