@@ -8,7 +8,7 @@ arch=('any')
 url='https://github.com/MightyPork/adios'
 license=('MIT')
 
-depends=('python3' 'python-gobject' 'python-docopt' 'gtk3')
+depends=('python3' 'python-gobject' 'python-docopt' 'gtk3' 'pm-utils')
 
 source=('https://github.com/MightyPork/adios/releases/download/%version/adios-%version-%rel.tar.gz')
 provides=('adios')
